@@ -8,7 +8,7 @@
     <?php wp_head();?>
   </head>
 
-  <body>
+  <body <?php body_class(); ?>>
 
 <!--RESPONSIVE NAVIGATIE-->
 
@@ -16,7 +16,7 @@
       
       <ul class="title-area"> 
         <li class="name">
-          <h1> <a href="index.html">DE ARKADE</a></h1>
+          <h1> <a href="<?php echo esc_url( home_url( '/' ) ); ?>">DE ARKADE</a></h1>
         </li>
         <li class="toggle-topbar menu-icon menutext">
           <a href="#"><span class="menutext">menu</span></a>
@@ -29,11 +29,13 @@
 
         <?php
         
+
         $arg = array(
 
           'theme_location' => 'main-menu',
           'items_wrap' => '%3$s',
           'container' => ''
+
 
         );
 
@@ -60,7 +62,7 @@
           <li><a href="blog.html">See all &rarr;</a></li>
           </ul>
         </li>
-    
+
 
         <li class="divider"></li>
         <li><a href="about.html">ABOUT</a></li>

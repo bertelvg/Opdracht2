@@ -1,5 +1,10 @@
 <?php
 
+function custom_excerpt_length( $length ) {
+	return 15;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
 function foundation_menus(){
 
 	register_nav_menus(
@@ -15,6 +20,8 @@ function foundation_menus(){
 
 add_action('init', 'foundation_menus');
 add_theme_support('menus');
+add_theme_support( 'post-thumbnails' );
+add_theme_support( 'html5', array( 'gallery', 'caption' ) );
 
 
 
