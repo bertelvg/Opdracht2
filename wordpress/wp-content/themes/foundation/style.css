@@ -1,0 +1,221 @@
+/*
+Theme Name: bertelFoundation
+Theme URI: http://www.bertelvangansbeke.be/
+Author: Bertel Van Gansbeke
+Author URI: http://www.bertelvangansbeke.be/
+Description: My first theme for the course Advanced web development at EHB
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, white, two-columns, three-columns,  responsive-layout, custom-header, editor-style, featured-images, full-width-template, post-formats, , translation-ready, accessibility-ready
+Text Domain: BertelFoundation
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/*VARIABLE*/
+/*BASIC SCSS*/
+body {
+  background: #F4F4F4; }
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  margin-bottom: none; }
+
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333; }
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase; }
+
+h5 {
+  font-weight: 700;
+  padding-top: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
+
+h6 {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 10px; }
+
+h3 > a {
+  color: #333;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px; }
+
+h6 > a {
+  color: #333;
+  font-weight: 700; }
+
+h4 > a {
+  color: #333; }
+
+a:hover {
+  color: #666; }
+
+a > img:hover {
+  opacity: 0.8; }
+
+/*MARGINS*/
+.margin50 {
+  margin-top: 50px;
+  margin-bottom: 50px; }
+
+.margin20 {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.margin30top {
+  margin-top: 30px; }
+
+.marginbot {
+  margin-bottom: 40px; }
+
+/*SLIDER*/
+.orbit-bullets {
+  display: none; }
+
+.orbit-slide-number {
+  display: none; }
+
+.orbit-caption {
+  display: none; }
+
+.orbit-timer {
+  display: none; }
+
+.slidetext {
+  color: #FFF;
+  position: relative;
+  z-index: 1000;
+  top: -140px;
+  font-size: 25px;
+  margin-top: -80px; }
+
+@media only screen and (max-width: 640px) {
+  .slidetext {
+    display: none; } }
+/*PANEL*/
+.panel {
+  padding-top: 50px;
+  margin-bottom: 0;
+  background: #FFF;
+  border: none; }
+  .panel h1, .panel h2, .panel h3, .panel h4, .panel h5 {
+    line-height: 1;
+    margin-bottom: 0.3rem; }
+  .panel h6 {
+    margin-bottom: 1rem;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px; }
+
+/*BLOG*/
+.latest {
+  margin-bottom: 40px;
+  margin-top: 40px; }
+
+.lblog {
+  margin-bottom: 40px; }
+
+.blogoverview {
+  margin-top: 50px;
+  margin-bottom: 50px; }
+
+.backblog {
+  background-color: #FFF;
+  padding: 20px; }
+
+/*NAVIGATION*/
+.top-bar {
+  background-color: #FFF;
+  color: #000; }
+  .top-bar .expanded {
+    background: #FFF; }
+    .top-bar .expanded .title-area {
+      background: #FFF; }
+  .top-bar .name h1 a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #333;
+    font-size: 12px; }
+
+.top-bar.expanded .title-area {
+  background: #FFF; }
+
+body > nav > section > ul > li {
+  background: #FFF; }
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: #FFF;
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 10px; }
+
+.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
+  border-right: solid 1px #EEE; }
+
+button, .button {
+  font-family: 'Roboto', sans-serif;
+  background-color: #333;
+  border: 2px solid #333;
+  color: #FFF;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 500; }
+  button:hover, .button:hover {
+    background-color: #FFF;
+    border: 2px solid #333;
+    color: #333; }
+  button:active, .button:active {
+    background-color: #FFF;
+    border: 2px solid #333;
+    color: #333; }
+  button:Focus, .button:Focus {
+    background-color: #FFF;
+    border: 2px solid #333;
+    color: #333; }
+
+#active {
+  background: #222;
+  color: #FFF; }
+
+.menutext {
+  color: #FFF; }
+
+.side-nav li a:not(.button) {
+  color: #666; }
+  .side-nav li a:not(.button):hover {
+    color: #333; }
+  .side-nav li a:not(.button):focus {
+    color: #333; }
+
+/*CONTACT*/
+.contact {
+  margin-top: -50px; }
+
+/*SOCIAL*/
+.social {
+  margin: 10px; }
+
+/*# sourceMappingURL=style.css.map */
