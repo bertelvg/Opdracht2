@@ -44,6 +44,9 @@
 
     <div class="row text-center lblog">
 
+      <?php    ?>
+
+<!--
       <div class="large-4 columns backblog">
         <a href="">
           <img src="img/b1.png" alt="blog_image"/>
@@ -96,7 +99,7 @@
         <h4 class="margin30top">BACK TO BASICS</h4>
         <p>Vandaag hebben we weer een bezoekje mogen brengen aan de These Days HQ in Antwerpen voor een gesprek met onze promotor Nicolas Moerman. Na wat rondgepitch van ons idee, ...</p>
       </div>
-
+-->
     </div>
 
 <?php get_footer();?>

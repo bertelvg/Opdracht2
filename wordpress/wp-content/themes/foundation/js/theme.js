@@ -1,4 +1,7 @@
-      $(document).foundation();
+      jQuery(document).ready(function($){
+
+            $(document).foundation();  
+      });
 
       /*Center slide-title*/
 
@@ -16,3 +19,4 @@
 
       var slidetext3 = document.getElementById('slidetext3');
       slidetext3.style.top=-v+"px";
+

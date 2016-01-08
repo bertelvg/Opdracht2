@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>De arkade | Home</title>
-    <script src="js/vendor/modernizr.js"></script>
     <link rel="icon" type="image/png" href="img/fav.png">
     <?php wp_head();?>
   </head>
@@ -27,6 +26,21 @@
       <section class="top-bar-section">
        
       <ul class="right">
+
+        <?php
+        
+        $arg = array(
+
+          'theme_location' => 'main-menu',
+          'items_wrap' => '%3$s',
+          'container' => ''
+
+        );
+
+        wp_nav_menu( $args );
+        
+        ?>
+<!--
         <li class="divider"></li>
         <li ><a href="index.html" id="active">HOME</a></li>
 
@@ -46,12 +60,13 @@
           <li><a href="blog.html">See all &rarr;</a></li>
           </ul>
         </li>
+    
 
         <li class="divider"></li>
         <li><a href="about.html">ABOUT</a></li>
 
         <li class="divider"></li>
-        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>-->
       </ul>
 
       </section>
