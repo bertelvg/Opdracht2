@@ -47,6 +47,47 @@ function foundation_styles() {
 }
 add_action('wp_enqueue_scripts','foundation_styles');
 
+if (function_exists('register_sidebar')) {  
+     register_sidebar(array(  
+      'name' => 'Footer Widgets',  
+      'id'   => 'footer-widgets',  
+      'description'   => 'Widget Area',  
+      'before_widget' => '<div id="one" class="two">',  
+      'after_widget'  => '</div>',  
+      'before_title'  => '<h2>',  
+      'after_title'   => '</h2>'  
+     ));  
 
+     register_sidebar(array(  
+      'name' => 'Home Widgets',  
+      'id'   => 'home-widgets',  
+      'description'   => 'Widget Area',  
+      'before_widget' => '<div id="one" class="two">',  
+      'after_widget'  => '</div>',  
+      'before_title'  => '<h2>',  
+      'after_title'   => '</h2>'  
+     ));  
+
+       register_sidebar(array(  
+      'name' => 'About top Widgets',  
+      'id'   => 'AboutTop-widgets',  
+      'description'   => 'Widget Area',  
+      'before_widget' => '<div id="one" class="two">',  
+      'after_widget'  => '</div>',  
+      'before_title'  => '<h2>',  
+      'after_title'   => '</h2>'  
+     ));  
+
+
+       register_sidebar(array(  
+      'name' => 'About bottom Widgets',  
+      'id'   => 'AboutBottom-widgets',  
+      'description'   => 'Widget Area',  
+      'before_widget' => '<div id="one" class="two">',  
+      'after_widget'  => '</div>',  
+      'before_title'  => '<h2>',  
+      'after_title'   => '</h2>'  
+     ));  
+    }  
 
 ?>

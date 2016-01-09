@@ -28,14 +28,11 @@
     <div class="panel">
       <div class="row call">
 
-        <div class="large-3 columns">
-          <a href="#" class=" button left">SUBSCRIBE</a>
-        </div>
 
-        <div class="large-9 columns text-left">
-          <h4>FINAL WORK MULTEC</h4>
-          <p>The gamification of TV-advertising with second screen apps</p>
-        </div>
+           <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Home Widgets') ) : ?>  
+      <?php endif; ?> 
+
+       
         
       </div>
     </div>

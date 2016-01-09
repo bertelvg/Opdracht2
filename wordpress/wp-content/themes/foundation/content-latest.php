@@ -3,7 +3,7 @@
 
       <div class="large-4 columns backblog">
         <a href="<?php the_permalink(); ?>">
-          <img src="<?php echo wp_get_attachment_thumb_url( get_post_thumbnail_id( $post->ID ) ); ?>" alt="blog_image"/>
+          <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post_id) ); ?>" alt="blog_image"/>
         </a>
         <h4 class="margin30top"><?php the_title();?></h4>
        <?php the_excerpt();?>

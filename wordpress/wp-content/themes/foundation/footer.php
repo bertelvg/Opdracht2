@@ -5,9 +5,10 @@
           <div class="large-12 columns marginbot">
 
             <h6>SPREAD THE WORD</h6>
-            <a href="#"><img class="social" border="0" alt="facebook" src="img/Black/24px/Facebook.png" ></a>
-            <a href="#"><img class="social" border="0" alt="facebook" src="img/Black/24px/Twitter.png" ></a>
-            <a href="#"><img class="social" border="0" alt="facebook" src="img/Black/24px/Linkedin.png" ></a>
+   
+
+        <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Widgets') ) : ?>  
+      <?php endif; ?> 
 
           </div>
           
