@@ -1,7 +1,7 @@
 <?php
 
 function custom_excerpt_length( $length ) {
-	return 15;
+	return 30;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
@@ -68,26 +68,7 @@ if (function_exists('register_sidebar')) {
       'after_title'   => '</h2>'  
      ));  
 
-       register_sidebar(array(  
-      'name' => 'About top Widgets',  
-      'id'   => 'AboutTop-widgets',  
-      'description'   => 'Widget Area',  
-      'before_widget' => '<div id="one" class="two">',  
-      'after_widget'  => '</div>',  
-      'before_title'  => '<h2>',  
-      'after_title'   => '</h2>'  
-     ));  
-
-
-       register_sidebar(array(  
-      'name' => 'About bottom Widgets',  
-      'id'   => 'AboutBottom-widgets',  
-      'description'   => 'Widget Area',  
-      'before_widget' => '<div id="one" class="two">',  
-      'after_widget'  => '</div>',  
-      'before_title'  => '<h2>',  
-      'after_title'   => '</h2>'  
-     ));  
+      
     }  
 
 ?>

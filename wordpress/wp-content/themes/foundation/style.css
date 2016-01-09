@@ -201,7 +201,10 @@ button, .button {
   background: #222;
   color: #FFF; }
 
- 
+ .top-bar-section li:not(.has-form).current-menu-item a:not(.button) {
+ 	 background: #222;
+  color: #FFF; 
+ }
 
 .menutext {
   color: #FFF; }
@@ -221,4 +224,26 @@ button, .button {
 .social {
   margin: 10px; }
 
+ body > div.row.blogoverview > aside > ul > li{
+ 	 font-weight: 700;
+  padding-top: 30px;
+  text-transform: uppercase;
+
+  letter-spacing: 2px; }
+
+ 
+
+  body > div.row.blogoverview > aside > ul > li > ul {
+
+  	list-style-type: none;
+  	 margin-left:0px;
+ 	
+ }
+
+
+
+  body > div.row.blogoverview > aside > ul > li > ul > li{
+  	margin-top: 20px;
+  	margin-bottom: 20px;
+}
 /*# sourceMappingURL=style.css.map */

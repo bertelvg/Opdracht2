@@ -13,13 +13,8 @@
  
  
     <aside class="large-3 columns">
-      <h5>Categories</h5>
       <ul class="side-nav">
-        <li><a href="#">Presentation</a></li>
-        <li><a href="#">Demo</a></li>
-        <li><a href="#">Article</a></li>
-        <li><a href="#">Report</a></li>
-        <li><a href="#">Work</a></li>
+       <?php wp_list_categories();?>
       </ul>
     </aside>
  
