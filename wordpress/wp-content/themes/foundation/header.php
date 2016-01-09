@@ -1,3 +1,5 @@
+ <!--HEADER STRUCTUUR (meta+nav) -->
+
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -5,17 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>De arkade | Home</title>
     <link rel="icon" type="image/png" href="img/fav.png">
+    <!--Wp_head-->
     <?php wp_head();?>
   </head>
-
+<!--INFO TOEVOEGEN AAN BODY ELEMENT -->
   <body <?php body_class(); ?>>
 
 <!--RESPONSIVE NAVIGATIE-->
 
      <nav class="top-bar" data-topbar>
-      
       <ul class="title-area"> 
         <li class="name">
+          <!--LINK NAAR HOME -->
           <h1> <a href="<?php echo esc_url( home_url( '/' ) ); ?>">DE ARKADE</a></h1>
         </li>
         <li class="toggle-topbar menu-icon menutext">
@@ -24,53 +27,16 @@
       </ul>
 
       <section class="top-bar-section">
-       
-      <ul class="right">
+        <ul class="right">
+           <!--MAIN MENU INLADEN -->
+          <?php
+            $arg = array(
 
-        <?php
-        
-
-        $arg = array(
-
-          'theme_location' => 'main-menu',
-          'items_wrap' => '%3$s',
-          'container' => ''
-
-
-        );
-
-        wp_nav_menu( $args );
-        
-        ?>
-<!--
-        <li class="divider"></li>
-        <li ><a href="index.html" id="active">HOME</a></li>
-
-        <li class="divider"></li>
-        <li><a href="blog.html">BLOG</a></li>
-
-        <li class="divider"></li>
-        <li class="has-dropdown">
-        <a href="#">CATEGORIES</a>
-          <ul class="dropdown">
-            <li><a href="blog.html">Presentation</a></li>
-            <li><a href="blog.html">Demo</a></li>
-            <li><a href="blog.html">Article</a></li>
-            <li><a href="blog.html">Report</a></li>
-            <li><a href="blog.html">Work</a></li>
-          <li class="divider"></li>
-          <li><a href="blog.html">See all &rarr;</a></li>
-          </ul>
-        </li>
-
-
-        <li class="divider"></li>
-        <li><a href="about.html">ABOUT</a></li>
-
-        <li class="divider"></li>
-        <li><a href="contact.html">CONTACT</a></li>-->
-      </ul>
-
+              'theme_location' => 'main-menu',
+              'items_wrap' => '%3$s',
+              'container' => ''
+            );
+          wp_nav_menu( $args );?>
+        </ul>
       </section>
-    
-    </nav>
+     </nav>
