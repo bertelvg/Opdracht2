@@ -15,113 +15,52 @@
 */
 
 
-function wporg_settings_api_init() {
-// Add the section to reading settings so we can add our fields to it
-add_settings_section(
-'wporg_setting_section',
-'Example settings section in reading',
-'wporg_setting_section_callback_function',
-'reading'
-);
- 
-// Add the field with the names and function to use for our new settings, put it in our new section
-add_settings_field(
-'wporg_setting_name',
-'Example setting Name',
-'wporg_setting_callback_function',
-'reading',
-'wporg_setting_section'
-);
- 
-// Register our setting in the "reading" settings section
-register_setting( 'reading', 'wporg_setting_name' );
-}
- 
-add_action( 'admin_init', 'wporg_settings_api_init' );
- 
-/*
- * Settings section callback function
- */
- 
-function wporg_setting_section_callback_function() {
-echo '<p>Intro text for our settings section</p>';
-}
- 
-/*
- * Callback function for our example setting
- */
- 
-function wporg_setting_callback_function() {
-$setting = esc_attr( get_option( 'wporg_setting_name' ) );
-echo "<input type='text' name='wporg_setting_name' value='$setting' />";
+// create custom plugin settings menu
+
+
+
+
+function register_my_cool_plugin_settings() {
+    //register our settings
+    register_setting( 'my-cool-plugin-settings-group', 'font-size' );
+    register_setting( 'my-cool-plugin-settings-group', 'font-color' );
+    register_setting( 'my-cool-plugin-settings-group', 'font-weight' );
 }
 
-/**
- * Add an admin submenu link under Settings
- */
-function wporg_add_options_submenu_page() {
-     add_submenu_page(
-          'options-general.php',          // admin page slug
-          __( 'WPORG Options', 'wporg' ), // page title
-          __( 'WPORG Options', 'wporg' ), // menu title
-          'manage_options',               // capability required to see the page
-          'wporg_options',                // admin page slug, e.g. options-general.php?page=wporg_options
-          'wporg_options_page'            // callback function to display the options page
-     );
-}
-add_action( 'admin_menu', 'wporg_add_options_submenu_page' );
- 
-/**
- * Register the settings
- */
-function wporg_register_settings() {
-     register_setting(
-          'wporg_options',  // settings section
-          'wporg_hide_meta' // setting name
-     );
-}
-add_action( 'admin_init', 'wporg_register_settings' );
- 
-/**
- * Build the options page
- */
-function wporg_options_page() {
-     if ( ! isset( $_REQUEST['settings-updated'] ) )
-          $_REQUEST['settings-updated'] = false; ?>
- 
-     <div class="wrap">
- 
-          <?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
-               <div class="updated fade"><p><strong><?php _e( 'WPORG Options saved!', 'wporg' ); ?></strong></p></div>
-          <?php endif; ?>
-           
-          <h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-           
-          <div id="poststuff">
-               <div id="post-body">
-                    <div id="post-body-content">
-                         <form method="post" action="options.php">
-                              <?php settings_fields( 'wporg_options' ); ?>
-                              <?php $options = get_option( 'wporg_hide_meta' ); ?>
-                              <table class="form-table">
-                                   <tr valign="top"><th scope="row"><?php _e( 'Hide the post meta information on posts?', 'wporg' ); ?></th>
-                                        <td>
-                                             <select name="wporg_hide_meta[hide_meta]" id="hide-meta">
-                                                  <?php $selected = $options['hide_meta']; ?>
-                                                  <option value="1" <?php selected( $selected, 1 ); ?> >Yes, hide the post meta!</option>
-                                                  <option value="0" <?php selected( $selected, 0 ); ?> >No, show my post meta!</option>
-                                             </select><br />
-                                             <label class="description" for="wporg_hide_meta[hide_meta]"><?php _e( 'Toggles whether or not to display post meta under posts.', 'wporg' ); ?></label>
-                                        </td>
-                                   </tr>
-                              </table>
-                         </form>
-                    </div> <!-- end post-body-content -->
-               </div> <!-- end post-body -->
-          </div> <!-- end poststuff -->
-     </div><?php
-}
+function my_cool_plugin_settings_page() {
+?>
+<div class="wrap">
 
+    
+<h2>Opdracht 3: settings vakgebied</h2>
+
+<form method="post" action="options.php">
+    <?php settings_fields( 'my-cool-plugin-settings-group' ); ?>
+    <?php do_settings_sections( 'my-cool-plugin-settings-group' ); ?>
+    <table class="form-table">
+        <tr valign="top">
+        <th scope="row">Font-size (px)</th>
+        <td><input type="text" name="font-size" value="<?php echo esc_attr( get_option('font-size') ); ?>" /></td>
+        </tr>
+         
+        <tr valign="top">
+        <th scope="row">Font-color (hex)</th>
+        <td><input type="text" name="font-color" value="<?php echo esc_attr( get_option('font-color') ); ?>" /></td>
+        </tr>
+        
+        <tr valign="top">
+        <th scope="row">Font-weight (100-900)</th>
+        <td><input type="text" name="font-weight" value="<?php echo esc_attr( get_option('font-weight') ); ?>" /></td>
+        </tr>
+
+
+    </table>
+    
+    <?php submit_button(); ?>
+
+</form>
+</div>
+<?php }
 
 
 /**
@@ -185,22 +124,22 @@ function sep_menuexample_create_menu() {
 //create custom top-level menu
 add_menu_page( 'My Plugin Settings Page', 'Opdracht 3','manage_options', __FILE__, 'sep_menuexample_settings_page',screen_icon('edit'));
 
-add_submenu_page( __FILE__, 'BufferCode Submenu','Settings', 'manage_options',__FILE__.'_menu1', 'sep_menuexample_settings_page2' );
+add_submenu_page( __FILE__, 'Settings opdracht 3','Settings', 'manage_options',__FILE__.'_menu1', 'my_cool_plugin_settings_page' );
+add_action( 'admin_init', 'register_my_cool_plugin_settings' );
 }
-function sep_menuexample_settings_page(){
-    echo "<br>";
-    echo "THIS IS SETTINGS PAGE";
-}
+function sep_menuexample_settings_page(){?>
+   
+<div class="wrap">
 
-function sep_menuexample_settings_page2(){
-    echo "<br>";
-    echo "THIS IS SETTINGS PAGE2";
-}
+    
+<h2>Opdracht 3</h2>
+<p> (Settings in submenu)</p>
+<p> Werkstuk opracht 3 Advanced web development</p>
+<a href="http://www.erasmushogeschool.be/opleidingen/bachelors/multimedia-communicatietechnologie-multec">Erasmus hogeschool brussel // multec</a>
+<br><br><hr><a href="http://bertelvangansbeke.be/#1">Bertel Van Gansbeke</a> <p>3e Bach Multec App and web</p>
+</div>
 
-
-?>
-
-
+<?php }
 
 
 
