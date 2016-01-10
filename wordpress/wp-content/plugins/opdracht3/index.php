@@ -21,8 +21,8 @@
 add_action('admin_menu', 'sep_menuexample_create_menu' );
 function sep_menuexample_create_menu() {
     add_menu_page( 'My Plugin Settings Page', 'Opdracht 3','manage_options', __FILE__, 'sep_menuexample_settings_page',screen_icon('edit'));
-    add_submenu_page( __FILE__, 'Settings opdracht 3','Settings', 'manage_options',__FILE__.'_menu1', 'my_cool_plugin_settings_page' );
-    add_action( 'admin_init', 'register_my_cool_plugin_settings' );
+    add_submenu_page( __FILE__, 'Settings opdracht 3','Settings', 'manage_options',__FILE__.'_menu1', 'settings_page' );
+    add_action( 'admin_init', 'register_settings' );
 }
 
 
@@ -43,22 +43,22 @@ function sep_menuexample_settings_page(){?>
 // DEEL 2: 3 PLUGIN SETTINGS
 
 // 2.1 REGISTREREN VAN SETTINGS
-function register_my_cool_plugin_settings() {
+function register_settings() {
     //register our settings
-    register_setting( 'my-cool-plugin-settings-group', 'font-size' );
-    register_setting( 'my-cool-plugin-settings-group', 'font-color' );
-    register_setting( 'my-cool-plugin-settings-group', 'font-weight' );
+    register_setting( 'settings-group', 'font-size' );
+    register_setting( 'settings-group', 'font-color' );
+    register_setting( 'settings-group', 'font-weight' );
 }
 
 // 2.2 OUTPUT SETTINGSPAGINA (SUBMENU) PLUGIN
-function my_cool_plugin_settings_page() {
+function settings_page() {
 ?>
     <div class="wrap">
         
         <h2>Opdracht 3: settings vakgebied</h2>
             <form method="post" action="options.php">
-                <?php settings_fields( 'my-cool-plugin-settings-group' ); ?>
-                <?php do_settings_sections( 'my-cool-plugin-settings-group' ); ?>
+                <?php settings_fields( 'settings-group' ); ?>
+                <?php do_settings_sections( 'settings-group' ); ?>
                 <table class="form-table">
                     <tr valign="top">
                         <th scope="row">Font-size (px)</th>
