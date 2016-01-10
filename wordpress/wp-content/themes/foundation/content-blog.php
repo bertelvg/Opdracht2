@@ -10,7 +10,13 @@
     <!--Title opvragen-->
     <h3 class="margin20" ><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
     <!--Autheur en datum opvragen-->
-    <h6>Written by <?php the_author(); ?> on <?php the_time('F j, Y');?></h6>
+    <h6>Written by <?php the_author(); ?> on <?php the_time('F j, Y');?> // course: 
+      <?php $meta_value = get_post_meta( get_the_ID(), 'meta-text', true );
+      if( !empty( $meta_value ) ) {
+          echo $meta_value;
+      }
+      ?>
+    </h6>
         
     <div class="row">        
       <div class="large-12 columns">
